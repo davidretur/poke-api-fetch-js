@@ -5,8 +5,25 @@ const inputBuscar = document.querySelector("#search-input");
 const MAXIMOS_POKEMONES = 151;
 inputBuscar.value = "";
 listaPokemon.innerHTML = "";
-
 let URL = "https://pokeapi.co/api/v2/pokemon/";
+
+
+botonesHeader.forEach(boton => boton.addEventListener("click", (event) => {
+    const botonId = event.currentTarget.id;
+    listaPokemon.innerHTML = "";
+    for (let i = 1; i <= MAXIMOS_POKEMONES; i++) {
+        fetch(URL + i)
+            .then((response) => response.json())
+            .then(poke => {
+                    const tipos = poke.types.map(type => type.type.name);
+                    if (tipos.some(tipo => tipo.includes(botonId))) {
+                        VerPokemon.innerHTML = "";
+                        mostrarPokemon(poke);
+                    }
+                
+            })
+    }
+}))
 
 function verTodosApi(){
     VerPokemon.innerHTML = "";
@@ -42,32 +59,14 @@ function mostrarPokemon(poke) {
 }
 
 
-botonesHeader.forEach(boton => boton.addEventListener("click", (event) => {
-    const botonId = event.currentTarget.id;
-    listaPokemon.innerHTML = "";
-    for (let i = 1; i <= MAXIMOS_POKEMONES; i++) {
-        fetch(URL + i)
-            .then((response) => response.json())
-            .then(poke => {
-                    const tipos = poke.types.map(type => type.type.name);
-                    if (tipos.some(tipo => tipo.includes(botonId))) {
-                        VerPokemon.innerHTML = "";
-                        mostrarPokemon(poke);
-                    }
-                
-            })
-    }
-}))
-
 function buscarPokemon() {
     listaPokemon.innerHTML = "";
     const no_exite = document.querySelector("#no_exite");
     no_exite.innerHTML = "";
-    const id_poke = inputBuscar.value.toLowerCase();
-
+    const id_poke = inputBuscar.value;
     if (id_poke < 1 || id_poke > MAXIMOS_POKEMONES) {
         listaPokemon.innerHTML = "";
-        no_exite.innerHTML = "El id Ingresado no Contiene ningun pokemon";
+        no_exite.innerHTML = "El id Ingresado no se encuentra en esta lista";
     } else {
         listaPokemon.innerHTML = "";
         let URL = "https://pokeapi.co/api/v2/pokemon/";
