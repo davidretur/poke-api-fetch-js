@@ -2,7 +2,7 @@ const listaPokemon = document.querySelector("#listaPokemon");
 const VerPokemon = document.querySelector("#VerPokemon");
 const botonesHeader = document.querySelectorAll(".btn-header");
 const inputBuscar = document.querySelector("#search-input");
-const MAXIMOS_POKEMONES = 11;
+const MAXIMOS_POKEMONES = 151;
 inputBuscar.value = "";
 listaPokemon.innerHTML = "";
 
@@ -60,12 +60,13 @@ botonesHeader.forEach(boton => boton.addEventListener("click", (event) => {
 }))
 
 function buscarPokemon() {
-    VerPokemon.innerHTML = "";
+    listaPokemon.innerHTML = "";
     const no_exite = document.querySelector("#no_exite");
     no_exite.innerHTML = "";
     const id_poke = inputBuscar.value.toLowerCase();
 
     if (id_poke < 1 || id_poke > MAXIMOS_POKEMONES) {
+        listaPokemon.innerHTML = "";
         no_exite.innerHTML = "El id Ingresado no Contiene ningun pokemon";
     } else {
         listaPokemon.innerHTML = "";
@@ -99,7 +100,7 @@ function VerPokemonGeneral(poke) {
     <div class="card">
     <div class="card-body">
         <h4 class="card-title"><b>${poke.name}</b></h4>
-        <h6 class="card-subtitle text-muted"><b>${poke.id}</b></h6>
+        <h6 class="card-subtitle text-muted">Id: <b>${poke.id}</b></h6>
     </div>
     <img class="img-fluid" src="${poke.sprites.other["official-artwork"].front_default}" alt="${poke.name}">
     <div class="card-body">
@@ -116,8 +117,8 @@ function VerPokemonGeneral(poke) {
     <ul class="list-group list-group-flush">
     <li class="list-group-item">Altura: <b>${poke.height} m </b></li>
     <li class="list-group-item">Peso: <b>${poke.weight} kg </b></li>
-        <li class="list-group-item">Experiencia : <b>${poke.base_experience} </b></li>
-        <li class="list-group-item">HP :  <b>${poke.stats[0].base_stat} esp</b></li>
+        <li class="list-group-item">Experiencia : <b>${poke.base_experience} Exp</b></li>
+        <li class="list-group-item">HP :  <b>${poke.stats[0].base_stat} hp</b></li>
         <li class="list-group-item">Ataque :  <b>${poke.stats[1].base_stat} K</b></li>
         <li class="list-group-item">Defensa :  <b>${poke.stats[2].base_stat} K</b></li>
         <li class="list-group-item">Especial :  <b>${poke.stats[3].base_stat} K</b></li>
