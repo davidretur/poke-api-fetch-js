@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio de pokemon api</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/mi_estilo.css">
+</head>
+<body>
+    <nav class="navbar bg-dark border-bottom border-body"
+    data-bs-theme="dark">
+        <div class="container-fluid">
+            <img src="./img/logo.png" alt="Logo Pokédex">
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="card">
+          <div class="card-body">
+            <div class="form-inline my-2 my-lg-6" >
+              <input type="number" class="form-control mr-sm-2 " min="1"
+              placeholder="Buscar Pokemon" aria-label="Buscar Pokemon" id="search-input">
+              <button class="btn btn-dark my-2 my-sm-0" type="" onclick="buscarPokemon()">Buscar Pokemon</button>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+          <button class="btn btn-success" id="btn-ver-todos" onclick="verTodosApi()">Ver todos</button> 
+          <button class="btn btn-header normal" id="normal">Normal</button>
+          <button class="btn btn-header fire" id="fire">Fire</button>
+          <button class="btn btn-header water" id="water">Water</button>
+          <button class="btn btn-header grass" id="grass">Grass</button>
+          <button class="btn btn-header electric" id="electric">Electric</button>
+          <button class="btn btn-header ice" id="ice">Ice</button>
+          <button class="btn btn-header fighting" id="fighting">Fighting</button>
+          <button class="btn btn-header poison" id="poison">Poison</button>
+          <button class="btn btn-header ground" id="ground">Ground</button>
+          <button class="btn btn-header flying" id="flying">Flying</button>
+          <button class="btn btn-header psychic" id="psychic">Psychic</button>
+          <button class="btn btn-header bug" id="bug">Bug</button>
+          <button class="btn btn-header rock" id="rock">Rock</button>
+        </div>
+        <div class="card-footer">         
+          <button class="btn btn-header ghost" id="ghost">Ghost</button>
+          <button class="btn btn-header dark" id="dark">Dark</button>
+          <button class="btn btn-header dragon" id="dragon">Dragon</button>
+          <button class="btn btn-header steel" id="steel">Steel</button>
+          <button class="btn btn-header fairy" id="fairy">Fairy</button>
+        </div>
+        </div>
+      </div>
+
+      <div class="container text-center">
+            <div  id="todos"></div>
+            <div class="row" id="listaPokemon"></div>
+            <div class="row" id="VerPokemon"></div>
+          <h1 id="no_exite"></h1> 
+
+        
+    </div>
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+<script src="./js/consulta_Api.js"></script>
+</html>
